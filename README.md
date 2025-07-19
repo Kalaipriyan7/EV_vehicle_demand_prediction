@@ -1,93 +1,99 @@
-Here’s a clean and professional `README.md` file for your **EV Adoption Forecasting** project, based on the code you've shared:
+Here is your revised `README.md` file titled **EV Vehicle Demand Prediction**:
 
 ---
 
-# EV Adoption Forecasting
+# EV Vehicle Demand Prediction
 
 ## Overview
 
-As electric vehicle (EV) adoption accelerates, forecasting trends in EV registrations is critical for infrastructure planning, especially the deployment of charging stations. This project aims to predict the future growth of EVs using a dataset from the Washington State Department of Licensing.
+Electric vehicles (EVs) are becoming increasingly popular, and it is important to anticipate their future demand to support proper infrastructure planning—especially for charging stations. This project uses historical vehicle registration data to forecast EV adoption trends using machine learning techniques.
 
 ## Problem Statement
 
-Using historical vehicle registration data, build a regression model to forecast electric vehicle (EV) adoption across different counties and vehicle types. The model should help estimate future demand for electric vehicles, aiding urban planning and sustainability efforts.
+Build a regression model that can predict future demand for electric vehicles based on historical data. The predictions will help inform planning decisions at state and county levels.
 
-## Dataset Description
+## Dataset
 
 * **Source**: [Kaggle - Electric Vehicle Population Size 2024](https://www.kaggle.com/datasets/sahirmaharajj/electric-vehicle-population-size-2024/data)
-* **Timeframe**: January 2017 to February 2024
-* **Granularity**: Monthly data by county
-* **Attributes**:
+* **Time Range**: January 2017 – February 2024
+* **Collected By**: Washington State Department of Licensing
+* **Granularity**: Monthly, by county
+* **Key Features**:
 
-  * `Date`
-  * `County`
-  * `State`
-  * `Vehicle Primary Use` (Passenger/Truck)
-  * `Battery Electric Vehicles (BEVs)`
-  * `Plug-In Hybrid Electric Vehicles (PHEVs)`
-  * `Electric Vehicle (EV) Total`
-  * `Non-Electric Vehicle Total`
-  * `Total Vehicles`
-  * `Percent Electric Vehicles`
+  * Date
+  * County
+  * State
+  * Vehicle Primary Use (Passenger or Truck)
+  * Battery Electric Vehicles (BEVs)
+  * Plug-In Hybrid Electric Vehicles (PHEVs)
+  * Electric Vehicle (EV) Total
+  * Non-Electric Vehicle Total
+  * Total Vehicles
+  * Percent Electric Vehicles
 
-## Project Goals
+## Project Objectives
 
-* Explore trends in EV registrations across time and regions
-* Clean and preprocess raw vehicle registration data
-* Train a machine learning regression model to predict future EV adoption
-* Evaluate and validate the model using performance metrics
+* Analyze and preprocess the EV registration dataset
+* Detect and handle missing values and outliers
+* Train a regression model (Random Forest) to forecast EV totals
+* Evaluate model performance using standard metrics
+* Prepare data for use in future prediction tasks
 
-## Technologies Used
+## Tools and Libraries
 
-* Python 3
+* Python 3.x
 * pandas, numpy
 * matplotlib, seaborn
 * scikit-learn
 * joblib
 
-## Steps Performed
+## Project Workflow
 
 ### 1. Data Exploration
 
-* Loaded and displayed the dataset
-* Checked for missing values and data types
-* Identified outliers using the IQR method
+* Loaded the dataset and reviewed the structure
+* Checked data types and missing values
+* Identified and treated outliers in the `Percent Electric Vehicles` column
 
 ### 2. Data Preprocessing
 
-* Converted `Date` column to `datetime` type
-* Filled missing values in `County` and `State` with `"Unknown"`
-* Removed or capped outliers in `Percent Electric Vehicles`
-* Ensured consistency in numeric columns
+* Converted `Date` column to datetime format
+* Replaced missing values in `County` and `State` with `"Unknown"`
+* Converted object-type numeric columns to integers
+* Capped outliers using interquartile range (IQR) method
 
-### 3. Modeling (Planned in Next Phase)
+### 3. Feature Engineering (Next Step)
 
-* Encode categorical features
-* Convert numeric strings (e.g., values with commas)
-* Create time-based features (year, month)
-* Fit a regression model such as `RandomForestRegressor`
-* Evaluate using MAE, RMSE, and R² metrics
-* Forecast EV totals for future months or years
+* Extract year and month from date
+* Encode categorical variables
+* Select relevant features for modeling
 
-## File Structure
+### 4. Model Development (Planned)
+
+* Use `RandomForestRegressor` for forecasting
+* Split data into training and testing sets
+* Evaluate using MAE, RMSE, and R²
+
+## Folder Structure
 
 ```
-EV-Adoption-Forecasting/
+EV-Vehicle-Demand-Prediction/
 ├── Electric_Vehicle_Population_By_County.csv
-├── EV_Adoption_Forecasting.ipynb
+├── EV_Vehicle_Demand_Prediction.ipynb
 ├── README.md
 ```
 
-## Future Improvements
+## Future Enhancements
 
-* Time series forecasting using models like Prophet or ARIMA
-* Incorporate external factors (fuel prices, policy changes)
-* Add geospatial analysis and interactive visualizations
+* Time series forecasting (Prophet, ARIMA)
+* Incorporate EV charging station data
+* Integrate external variables like fuel prices and EV incentives
+* Visualize trends through dashboards
 
 ## License
 
-This project is for academic and research purposes. Please review the dataset’s source license on Kaggle before using it commercially.
+This project is for academic and research purposes. Please refer to the dataset's Kaggle page for licensing details.
 
 ---
 
-Let me know if you’d like a version tailored for GitHub with badges or setup instructions.
+Let me know if you want this turned into a GitHub-flavored version or accompanied by a `requirements.txt` and `setup.py`.
